@@ -46,7 +46,7 @@
             padding: 20px;
             z-index: 1;
             position: relative;
-            top: -50px; /* Moves the content section higher by 50 pixels */
+            top: -50px; /* Keeps the call-to-action slightly higher */
         }
 
         h1 {
@@ -136,6 +136,51 @@
             padding: 20px;
             max-width: 80%;
         }
+
+        /* Green circle with pulsing effect */
+        .online-indicator {
+            position: absolute;
+            top: 20px;
+            right: calc(60px + 80px); /* Adjusted to leave space for text */
+            width: 12px; /* Smaller circle */
+            height: 12px; /* Smaller circle */
+            background-color: #00ff00; /* Bright green */
+            border-radius: 50%;
+            animation: pulse 2s infinite ease-in-out;
+            z-index: 2;
+        }
+
+        @keyframes pulse {
+            0% {
+                background-color: #00ff00; /* Bright green */
+                box-shadow: 0 0 5px #00ff00;
+            }
+            50% {
+                background-color: #00cc00; /* Darker green */
+                box-shadow: 0 0 10px #00cc00;
+            }
+            100% {
+                background-color: #00ff00; /* Back to bright green */
+                box-shadow: 0 0 5px #00ff00;
+            }
+        }
+
+        .online-text {
+            position: absolute;
+            top: 15px;
+            right: 20px; /* Moved to the right */
+            font-size: 1.2em;
+            color: white; /* Changed to white to match other text */
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+            font-weight: bold;
+            animation: fadeInOut 2s infinite ease-in-out;
+        }
+
+        @keyframes fadeInOut {
+            0% { opacity: 0.7; }
+            50% { opacity: 1; }
+            100% { opacity: 0.7; }
+        }
     </style>
 </head>
 <body>
@@ -147,7 +192,9 @@
         <a href="https://fansly.com/pantynectar" class="button">Golden Showers</a>
     </div>
     <div class="iphone-overlay">
-        <div class="flirty-quote">You're ready, arent you big boy? Let's play!</div>
+        <div class="flirty-quote">You're ready for me, arent? Let's play!</div>
     </div>
+    <div class="online-indicator"></div>
+    <div class="online-text">Online Now!</div>
 </body>
 </html>
