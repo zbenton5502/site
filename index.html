@@ -4,244 +4,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PantyNectar | Exclusive NSFW Content</title>
-    <style>
-        body {
-            margin: 0;
-            height: 100vh;
-            overflow: hidden;
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            color: white;
-            position: relative;
-        }
-
-        .gradient-background {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(
-                45deg,
-                #1a0023,
-                #4a004a,
-                #2a003a,
-                #3a0045
-            );
-            background-size: 200% 200%;
-            animation: gradientFlow 20s ease infinite;
-            z-index: -1;
-        }
-
-        @keyframes gradientFlow {
-            0% { background-position: 0% 0%; }
-            50% { background-position: 100% 100%; }
-            100% { background-position: 0% 0%; }
-        }
-
-        .content {
-            padding: 20px;
-            z-index: 1;
-            position: relative;
-            top: -50px; /* Keeps the call-to-action slightly higher */
-        }
-
-        h1 {
-            font-size: 3em;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-        }
-
-        p {
-            font-size: 1.5em;
-            margin-bottom: 30px;
-        }
-
-        .button {
-            display: inline-block;
-            padding: 15px 30px;
-            margin: 10px;
-            font-size: 1.2em;
-            color: white;
-            text-decoration: none;
-            background-color: rgba(255, 255, 255, 0.1);
-            border: 2px solid white;
-            border-radius: 5px;
-            transition: background-color 0.3s, transform 0.2s;
-        }
-
-        .button:hover {
-            background-color: rgba(255, 255, 255, 0.2);
-            transform: scale(1.05);
-        }
-
-        /* iPhone-like overlay at the bottom third */
-        .iphone-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 33.33%;
-            background: linear-gradient(
-                45deg,
-                rgba(26, 0, 35, 0.8),
-                rgba(74, 0, 74, 0.8),
-                rgba(42, 0, 58, 0.8),
-                rgba(58, 0, 69, 0.8)
-            );
-            background-size: 200% 200%;
-            animation: gradientFlow 20s ease infinite;
-            border-top-left-radius: 40px;
-            border-top-right-radius: 40px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 0;
-            overflow: hidden;
-        }
-
-        /* Shimmer effect on the top edge */
-        .iphone-overlay::before {
-            content: '';
-            position: absolute;
-            top: -2px;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: linear-gradient(
-                to right,
-                transparent 0%,
-                rgba(255, 255, 255, 0.5) 50%,
-                transparent 100%
-            );
-            animation: shimmer 3s infinite;
-        }
-
-        @keyframes shimmer {
-            0% {
-                transform: translateX(-100%);
-            }
-            100% {
-                transform: translateX(100%);
-            }
-        }
-
-        .flirty-quote-link {
-            color: white; /* Ensures text stays white */
-            text-decoration: none; /* Removes underline from link */
-            display: flex; /* Makes the link a flex container to center its child */
-            justify-content: center; /* Centers horizontally */
-            align-items: center; /* Centers vertically */
-            width: 100%; /* Ensures it takes full width of parent for centering */
-        }
-
-        .flirty-quote-link:hover {
-            cursor: pointer; /* Shows hand cursor on hover */
-        }
-
-        .flirty-quote {
-            font-size: 1.8em;
-            color: white;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-            max-width: 80%; /* Limits width to avoid overflow */
-            text-align: center; /* Ensures text inside is centered */
-        }
-
-        /* Container for clickable online status and profile pic */
-        .online-container {
-            position: absolute;
-            top: 15px;
-            right: 20px;
-            text-decoration: none; /* Removes underline from link */
-            color: white; /* Ensures text color stays white */
-            z-index: 2;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-end; /* Aligns items to the right */
-        }
-
-        .online-container:hover {
-            cursor: pointer; /* Shows hand cursor on hover */
-        }
-
-        /* Green circle with pulsing effect */
-        .online-indicator {
-            position: absolute;
-            top: 5px; /* Adjusted to align vertically with text */
-            right: calc(100px + 20px); /* Restores original positioning relative to text */
-            width: 12px;
-            height: 12px;
-            background-color: #00ff00;
-            border-radius: 50%;
-            animation: pulse 2s infinite ease-in-out;
-        }
-
-        @keyframes pulse {
-            0% {
-                background-color: #00ff00;
-                box-shadow: 0 0 5px #00ff00;
-            }
-            50% {
-                background-color: #00cc00;
-                box-shadow: 0 0 10px #00cc00;
-            }
-            100% {
-                background-color: #00ff00;
-                box-shadow: 0 0 5px #00ff00;
-            }
-        }
-
-        .online-text {
-            font-size: 1.2em;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
-            font-weight: bold;
-            animation: fadeInOut 2s infinite ease-in-out;
-        }
-
-        @keyframes fadeInOut {
-            0% { opacity: 0.7; }
-            50% { opacity: 1; }
-            100% { opacity: 0.7; }
-        }
-
-        /* Profile Picture Styles */
-        .profile-pic {
-            width: 60px;
-            height: 60px;
-            overflow: hidden;
-            border-radius: 50%;
-            margin-top: 10px; /* Adds space between text and PFP */
-        }
-
-        .profile-pic img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="gradient-background"></div>
-    <div class="content">
-        <h1>PantyNectar</h1>
-        <p>Discover the Best NSFW Content Online</p>
-        <a href="https://onlyfans.com/pantynectar" class="button">Hardcore B/G Solo Facials Creampies</a>
-        <a href="https://fansly.com/pantynectar" class="button">Golden Showers</a>
-    </div>
-    <div class="iphone-overlay">
-        <a href="https://onlyfans.com/pantynectar" class="flirty-quote-link">
-            <div class="flirty-quote">You're ready for me, arent you? Let's play!</div>
-        </a>
-    </div>
-    <a href="https://onlyfans.com/pantynectar" class="online-container">
-        <div class="online-indicator"></div>
-        <div class="online-text">Online Now!</div>
-        <div class="profile-pic">
-            <img src="/Users/zane/site/pfp.jpg" alt="Profile Picture">
+    <header>
+        <div class="social-proof">Adored by Millions Worldwide!</div>
+    </header>
+
+    <main>
+        <div class="background-slider">
+            <div class="slide active"></div>
+            <div class="slide"></div>
+            <div class="slide"></div>
+            <div class="slide"></div>
         </div>
-    </a>
+        <div class="gradient-background"></div>
+
+        <section class="content">
+            <h1>PantyNectar</h1>
+            <p>Discover the Best NSFW Content Online</p>
+            <a href="https://onlyfans.com/pantynectar" class="button">Hardcore B/G Solo Facials Creampies
+                <div class="tooltip">Dive into steamy hardcore creampie action!</div>
+            </a>
+            <a href="https://fansly.com/pantynectar" class="button">Golden Showers
+                <div class="tooltip">Get soaked with exclusive pee play fantasies!</div>
+            </a>
+        </section>
+
+        <section class="iphone-overlay">
+            <a href="https://onlyfans.com/pantynectar" class="flirty-quote-link">
+                <div class="flirty-quote">You're ready for me, aren't you? Let's play!</div>
+            </a>
+        </section>
+
+        <a href="https://onlyfans.com/pantynectar" class="online-container">
+            <div class="online-indicator"></div>
+            <div class="online-text">Online Now!</div>
+            <div class="profile-pic">
+                <img src="/Users/zane/site/pfp.jpg" alt="Profile Picture">
+            </div>
+        </a>
+    </main>
+
+    <script src="script.js"></script>
 </body>
 </html>
