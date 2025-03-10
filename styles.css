@@ -41,10 +41,10 @@ body {
 }
 
 /* Image paths (update these to your hosted URLs later) */
-.slide:nth-child(1) { background-image: url('/Users/zane/site/b-1.jpg'); }
-.slide:nth-child(2) { background-image: url('/Users/zane/site/b-2.jpg'); }
-.slide:nth-child(3) { background-image: url('/Users/zane/site/b-3.jpg'); }
-.slide:nth-child(4) { background-image: url('/Users/zane/site/b-4.jpg'); }
+.slide:nth-child(1) { background-image: url('/b-1.jpg'); }
+.slide:nth-child(2) { background-image: url('/b-2.jpg'); }
+.slide:nth-child(3) { background-image: url('/b-3.jpg'); }
+.slide:nth-child(4) { background-image: url('/b-4.jpg'); }
 
 /* Gradient Overlay */
 .gradient-background {
