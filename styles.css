@@ -31,8 +31,8 @@ body {
     height: 100%;
     opacity: 0;
     transition: opacity 1s ease-in-out;
-    background-size: cover;
-    background-position: center;
+    background-size: cover; /* Maintains zoom effect */
+    background-position: 50% 25%; /* Explicit syntax: 50% horizontal (center), 25% vertical (between top and center) */
     background-repeat: no-repeat;
 }
 
