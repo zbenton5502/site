@@ -2,7 +2,8 @@
 body {
     margin: 0;
     height: 100vh;
-    overflow: hidden;
+    overflow: auto; /* Enable scrolling to allow elastic effect */
+    -webkit-overflow-scrolling: touch; /* Enable momentum-based scrolling for iOS */
     font-family: Arial, sans-serif;
     display: flex;
     justify-content: center;
@@ -10,15 +11,27 @@ body {
     text-align: center;
     color: white;
     position: relative;
+    background-color: #1a0023; /* Match the darkest gradient color to hide white edges */
+}
+
+/* Ensure main fills the viewport */
+main {
+    width: 100%;
+    height: 100vh; /* Ensure main takes up full viewport height */
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 /* Background Slider */
 .background-slider {
-    position: absolute;
+    position: fixed; /* Use fixed to ensure it covers the viewport */
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: 100vw; /* Use viewport width to ensure full coverage */
+    height: 100vh; /* Use viewport height */
     overflow: hidden;
     z-index: -2;
 }
@@ -31,13 +44,13 @@ body {
     height: 100%;
     opacity: 0;
     transition: opacity 1s ease-in-out;
-    background-size: cover; /* Maintains zoom effect */
-    background-position: 50% 25%; /* Explicit syntax: 50% horizontal (center), 25% vertical (between top and center) */
+    background-size: cover;
+    background-position: 50% 25%;
     background-repeat: no-repeat;
 }
 
 .slide.active {
-    opacity: 0.3; /* Semi-transparent to keep text readable */
+    opacity: 0.3;
 }
 
 /* Image paths (update these to your hosted URLs later) */
@@ -48,16 +61,16 @@ body {
 
 /* Gradient Overlay */
 .gradient-background {
-    position: absolute;
+    position: fixed; /* Use fixed to ensure it covers the viewport */
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: 100vw; /* Use viewport width */
+    height: 100vh; /* Use viewport height */
     background: linear-gradient(45deg, #1a0023, #4a004a, #2a003a, #3a0045);
     background-size: 200% 200%;
     animation: gradientFlow 20s ease infinite;
     z-index: -1;
-    opacity: 0.7; /* Reduced opacity to blend with slider */
+    opacity: 0.7;
 }
 
 @keyframes gradientFlow {
@@ -71,7 +84,7 @@ body {
     padding: 20px;
     z-index: 1;
     position: relative;
-    top: -50px; /* Keeps the call-to-action slightly higher */
+    top: -50px;
 }
 
 h1 {
@@ -97,7 +110,7 @@ p {
     border: 2px solid white;
     border-radius: 5px;
     transition: background-color 0.3s, transform 0.2s;
-    position: relative; /* Needed for tooltip positioning */
+    position: relative;
 }
 
 .button:hover {
@@ -107,24 +120,24 @@ p {
 
 /* Hover Tooltip for Buttons */
 .button .tooltip {
-    display: block; /* Always present but hidden via opacity */
+    display: block;
     position: absolute;
-    bottom: calc(100% + 5px); /* Adds 5px separation from the button */
+    bottom: calc(100% + 5px);
     left: 50%;
     transform: translateX(-50%);
-    background: rgba(0, 0, 0, 0.5); /* Subtle background */
-    color: #ff69b4; /* Hot pink for a playful vibe */
+    background: rgba(0, 0, 0, 0.5);
+    color: #ff69b4;
     padding: 3px 8px;
     border-radius: 3px;
     font-size: 0.8em;
     white-space: nowrap;
     z-index: 3;
-    opacity: 0; /* Start hidden */
-    transition: opacity 0.3s ease-in-out 0.2s; /* Fade in with 0.2s delay */
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out 0.2s;
 }
 
 .button:hover .tooltip {
-    opacity: 0.85; /* Fade in with slight translucency */
+    opacity: 0.85;
 }
 
 /* iPhone-like Overlay */
@@ -163,24 +176,24 @@ p {
 }
 
 .flirty-quote-link {
-    color: white; /* Ensures text stays white */
-    text-decoration: none; /* Removes underline from link */
-    display: flex; /* Makes the link a flex container to center its child */
-    justify-content: center; /* Centers horizontally */
-    align-items: center; /* Centers vertically */
-    width: 100%; /* Ensures it takes full width of parent for centering */
+    color: white;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 }
 
 .flirty-quote-link:hover {
-    cursor: pointer; /* Shows hand cursor on hover */
+    cursor: pointer;
 }
 
 .flirty-quote {
     font-size: 1.8em;
     color: white;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    max-width: 80%; /* Limits width to avoid overflow */
-    text-align: center; /* Ensures text inside is centered */
+    max-width: 80%;
+    text-align: center;
 }
 
 /* Online Status and Profile Pic */
@@ -188,22 +201,31 @@ p {
     position: absolute;
     top: 15px;
     right: 20px;
-    text-decoration: none; /* Removes underline from link */
-    color: white; /* Ensures text color stays white */
+    text-decoration: none;
+    color: white;
     z-index: 2;
     display: flex;
     flex-direction: column;
-    align-items: flex-end; /* Aligns items to the right */
+    align-items: flex-end;
+}
+
+/* Modified order: PFP first, then Online Now! text */
+.online-container .profile-pic {
+    order: 1;
+}
+
+.online-container .online-text {
+    order: 2;
 }
 
 .online-container:hover {
-    cursor: pointer; /* Shows hand cursor on hover */
+    cursor: pointer;
 }
 
 .online-indicator {
     position: absolute;
-    top: 5px; /* Adjusted to align vertically with text */
-    right: calc(100px + 20px); /* Restores original positioning relative to text */
+    top: 75px;
+    right: calc(97px + 20px);
     width: 12px;
     height: 12px;
     background-color: #00ff00;
@@ -245,7 +267,7 @@ p {
     height: 60px;
     overflow: hidden;
     border-radius: 50%;
-    margin-top: 10px; /* Adds space between text and PFP */
+    margin-top: 10px;
 }
 
 .profile-pic img {
@@ -261,7 +283,7 @@ p {
     left: 50%;
     transform: translateX(-50%);
     font-size: 1.1em;
-    color: #ff69b4; /* Hot pink for a playful vibe */
+    color: #ff69b4;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
     padding: 5px 15px;
     background: rgba(255, 105, 180, 0.2);
