@@ -40,7 +40,7 @@ body {
     opacity: 0.3; /* Semi-transparent to keep text readable */
 }
 
-/* Image paths for GitHub Pages */
+/* Image paths (update these to your hosted URLs later) */
 .slide:nth-child(1) { background-image: url('/b-1.jpg'); }
 .slide:nth-child(2) { background-image: url('/b-2.jpg'); }
 .slide:nth-child(3) { background-image: url('/b-3.jpg'); }
@@ -53,17 +53,11 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(
-        45deg,
-        #150025, /* Darker purple */
-        #1a0033, /* Dark blue with purple tint */
-        #003366, /* Rich navy blue */
-        #2a0045  /* Dark purple */
-    );
-    background-size: 400% 400%; /* Increased for more dramatic animation */
+    background: linear-gradient(45deg, #1a0023, #4a004a, #2a003a, #3a0045);
+    background-size: 200% 200%;
     animation: gradientFlow 20s ease infinite;
     z-index: -1;
-    opacity: 0.5; /* Reduced opacity to make gradient more pronounced */
+    opacity: 0.7; /* Reduced opacity to blend with slider */
 }
 
 @keyframes gradientFlow {
@@ -140,14 +134,8 @@ p {
     left: 0;
     width: 100%;
     height: 33.33%;
-    background: linear-gradient(
-        45deg,
-        rgba(26, 0, 35, 0.8),
-        rgba(74, 0, 74, 0.8),
-        rgba(42, 0, 58, 0.8),
-        rgba(58, 0, 69, 0.8)
-    );
-    background-size: 400% 400%; /* Match the main gradient for consistency */
+    background: linear-gradient(45deg, rgba(26, 0, 35, 0.8), rgba(74, 0, 74, 0.8), rgba(42, 0, 58, 0.8), rgba(58, 0, 69, 0.8));
+    background-size: 200% 200%;
     animation: gradientFlow 20s ease infinite;
     border-top-left-radius: 40px;
     border-top-right-radius: 40px;
@@ -165,12 +153,7 @@ p {
     left: 0;
     width: 100%;
     height: 2px;
-    background: linear-gradient(
-        to right,
-        transparent 0%,
-        rgba(255, 255, 255, 0.5) 50%,
-        transparent 100%
-    );
+    background: linear-gradient(to right, transparent 0%, rgba(255, 255, 255, 0.5) 50%, transparent 100%);
     animation: shimmer 3s infinite;
 }
 
