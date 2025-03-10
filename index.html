@@ -129,48 +129,73 @@
             }
         }
 
+        .flirty-quote-link {
+            color: white; /* Ensures text stays white */
+            text-decoration: none; /* Removes underline from link */
+            display: flex; /* Makes the link a flex container to center its child */
+            justify-content: center; /* Centers horizontally */
+            align-items: center; /* Centers vertically */
+            width: 100%; /* Ensures it takes full width of parent for centering */
+        }
+
+        .flirty-quote-link:hover {
+            cursor: pointer; /* Shows hand cursor on hover */
+        }
+
         .flirty-quote {
             font-size: 1.8em;
             color: white;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-            padding: 20px;
-            max-width: 80%;
+            max-width: 80%; /* Limits width to avoid overflow */
+            text-align: center; /* Ensures text inside is centered */
+        }
+
+        /* Container for clickable online status and profile pic */
+        .online-container {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            text-decoration: none; /* Removes underline from link */
+            color: white; /* Ensures text color stays white */
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end; /* Aligns items to the right */
+        }
+
+        .online-container:hover {
+            cursor: pointer; /* Shows hand cursor on hover */
         }
 
         /* Green circle with pulsing effect */
         .online-indicator {
             position: absolute;
-            top: 20px;
-            right: calc(60px + 80px); /* Adjusted to leave space for text */
-            width: 12px; /* Smaller circle */
-            height: 12px; /* Smaller circle */
-            background-color: #00ff00; /* Bright green */
+            top: 5px; /* Adjusted to align vertically with text */
+            right: calc(100px + 20px); /* Restores original positioning relative to text */
+            width: 12px;
+            height: 12px;
+            background-color: #00ff00;
             border-radius: 50%;
             animation: pulse 2s infinite ease-in-out;
-            z-index: 2;
         }
 
         @keyframes pulse {
             0% {
-                background-color: #00ff00; /* Bright green */
+                background-color: #00ff00;
                 box-shadow: 0 0 5px #00ff00;
             }
             50% {
-                background-color: #00cc00; /* Darker green */
+                background-color: #00cc00;
                 box-shadow: 0 0 10px #00cc00;
             }
             100% {
-                background-color: #00ff00; /* Back to bright green */
+                background-color: #00ff00;
                 box-shadow: 0 0 5px #00ff00;
             }
         }
 
         .online-text {
-            position: absolute;
-            top: 15px;
-            right: 20px; /* Moved to the right */
             font-size: 1.2em;
-            color: white; /* Changed to white to match other text */
             text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
             font-weight: bold;
             animation: fadeInOut 2s infinite ease-in-out;
@@ -180,6 +205,21 @@
             0% { opacity: 0.7; }
             50% { opacity: 1; }
             100% { opacity: 0.7; }
+        }
+
+        /* Profile Picture Styles */
+        .profile-pic {
+            width: 60px;
+            height: 60px;
+            overflow: hidden;
+            border-radius: 50%;
+            margin-top: 10px; /* Adds space between text and PFP */
+        }
+
+        .profile-pic img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
     </style>
 </head>
@@ -192,9 +232,16 @@
         <a href="https://fansly.com/pantynectar" class="button">Golden Showers</a>
     </div>
     <div class="iphone-overlay">
-        <div class="flirty-quote">You're ready for me, arent? Let's play!</div>
+        <a href="https://onlyfans.com/pantynectar" class="flirty-quote-link">
+            <div class="flirty-quote">You're ready for me, arent you? Let's play!</div>
+        </a>
     </div>
-    <div class="online-indicator"></div>
-    <div class="online-text">Online Now!</div>
+    <a href="https://onlyfans.com/pantynectar" class="online-container">
+        <div class="online-indicator"></div>
+        <div class="online-text">Online Now!</div>
+        <div class="profile-pic">
+            <img src="/Users/zane/site/pfp.jpg" alt="Profile Picture">
+        </div>
+    </a>
 </body>
 </html>
