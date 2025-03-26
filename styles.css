@@ -1,23 +1,19 @@
 /* Global Styles */
 body {
     margin: 0;
-    height: 100vh;
-    overflow: auto; /* Enable scrolling to allow elastic effect */
+    min-height: 100vh; /* Ensure body takes at least full viewport height */
+    overflow: auto; /* Enable scrolling */
     -webkit-overflow-scrolling: touch; /* Enable momentum-based scrolling for iOS */
     font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
     color: white;
-    position: relative;
-    background-color: #1a0023; /* Match the darkest gradient color to hide white edges */
+    background-color: #1a0023; /* Match the darkest gradient color */
+    display: block; /* Change from flex to block to stack sections vertically */
 }
 
 /* Ensure main fills the viewport */
 main {
     width: 100%;
-    height: 100vh; /* Ensure main takes up full viewport height */
+    height: 100vh; /* Full viewport height */
     position: relative;
     display: flex;
     flex-direction: column;
@@ -27,11 +23,11 @@ main {
 
 /* Background Slider */
 .background-slider {
-    position: fixed; /* Use fixed to ensure it covers the viewport */
+    position: fixed;
     top: 0;
     left: 0;
-    width: 100vw; /* Use viewport width to ensure full coverage */
-    height: 100vh; /* Use viewport height */
+    width: 100vw;
+    height: 100vh;
     overflow: hidden;
     z-index: -2;
 }
@@ -61,11 +57,11 @@ main {
 
 /* Gradient Overlay */
 .gradient-background {
-    position: fixed; /* Use fixed to ensure it covers the viewport */
+    position: fixed;
     top: 0;
     left: 0;
-    width: 100vw; /* Use viewport width */
-    height: 100vh; /* Use viewport height */
+    width: 100vw;
+    height: 100vh;
     background: linear-gradient(45deg, #1a0023, #4a004a, #2a003a, #3a0045);
     background-size: 200% 200%;
     animation: gradientFlow 20s ease infinite;
@@ -85,6 +81,7 @@ main {
     z-index: 1;
     position: relative;
     top: -50px;
+    text-align: center;
 }
 
 h1 {
@@ -299,6 +296,7 @@ p {
 
 /* Podcast Section (Below Main Content) */
 .podcast {
+    width: 100%;
     padding: 40px 20px;
     background-color: #1a0023; /* Match body background */
     color: white;
@@ -337,4 +335,18 @@ p {
 .podcast audio {
     width: 100%;
     max-width: 500px;
+}
+
+.podcast p {
+    margin-top: 20px;
+    font-size: 1em;
+}
+
+.podcast a {
+    color: #ff69b4;
+    text-decoration: none;
+}
+
+.podcast a:hover {
+    text-decoration: underline;
 }
