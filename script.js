@@ -17,11 +17,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const podcastContainer = document.getElementById('podcast-episodes');
 
     fetch(proxyUrl + encodeURIComponent(rssFeedUrl))
-        .then(response => response.text())
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.text();
+        })
         .then(data => {
+            console.log('RSS Feed Data:', data); // Debug: Log the raw RSS data
             const parser = new DOMParser();
             const xmlDoc = parser.parseFromString(data, 'text/xml');
             const items = xmlDoc.getElementsByTagName('item');
+            console.log('Parsed Items:', items); // Debug: Log the parsed items
             let html = '<ul>';
 
             for (let i = 0; i < Math.min(items.length, 5); i++) { // Limit to 5 episodes
