@@ -296,3 +296,45 @@ p {
     from { box-shadow: 0 0 5px #ff69b4; }
     to { box-shadow: 0 0 10px #ff69b4, 0 0 15px #ff69b4; }
 }
+
+/* Podcast Section (Below Main Content) */
+.podcast {
+    padding: 40px 20px;
+    background-color: #1a0023; /* Match body background */
+    color: white;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.podcast h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.podcast ul {
+    list-style: none;
+    padding: 0;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.podcast li {
+    margin-bottom: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 5px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    text-align: left;
+}
+
+.podcast h3 {
+    margin: 0 0 10px 0;
+    font-size: 1.2em;
+}
+
+.podcast audio {
+    width: 100%;
+    max-width: 500px;
+}
